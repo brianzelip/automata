@@ -59,8 +59,7 @@
 
       function radomizeGen0() {
         let divs = document.querySelectorAll('#gen0 > div');
-        Array.from(divs).map(div => div.classList.add(randomBinary() ? 'active' : 'inactive'))
-
+        Array.from(divs).map(div => div.classList.add(randomBinary() ? 'active' : 'inactive'));
       }
 
       function randomBinary() {
