@@ -16,11 +16,11 @@
         margin: 3.5px 2.5px;
       }
 
-      .row {
+      #gen0 {
         line-height: 1;
       }
 
-      .row > div {
+      #gen0 > div {
         height: 25px;
         width: 25px;
         display: inline-block;
@@ -29,9 +29,9 @@
         box-sizing: border-box;
       }
 
-      .row > div.active { background-color: red; }
+      #gen0 > div.active { background-color: red; }
 
-      .row > div.inactive {
+      #gen0 > div.inactive {
         background-color: #fff;
         border: 1px solid red;
       }
@@ -42,25 +42,26 @@
   <body>
 
     <main id="automata">
-      <div class="row"></div>
+      <div id="gen0"></div>
     </main>
 
     <script>
 
       const automata = document.getElementById('automata');
-      const row = document.querySelector('.row');
+      const gen0 = document.getElementById('gen0');
 
-      function createRow() {
+      function generation0() {
         for (let i=0; i<41; i++) {
           let div = document.createElement('div');
-          div.classList.add(randomBinary() ? 'active' : 'inactive')
-          row.appendChild(div);
+          // div.classList.add(randomBinary() ? 'active' : 'inactive')
+          gen0.appendChild(div);
         }
       }
 
-      function radomizeFirstRow() {
-        let divs = document.querySelectorAll('.row > div');
+      function radomizeGen0() {
+        let divs = document.querySelectorAll('#gen0 > div');
         Array.from(divs).map(div => div.classList.add(randomBinary() ? 'active' : 'inactive'))
+
       }
 
       function randomBinary() {
@@ -70,12 +71,12 @@
       }
 
       function addRow() {
-        let newRow = row.cloneNode(true);
+        let newRow = gen0.cloneNode(true);
         automata.appendChild(newRow);
       }
 
-      createRow();
-      radomizeFirstRow();
+      generation0();
+      radomizeGen0();
       addRow();
 
     </script>
