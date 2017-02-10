@@ -20,7 +20,8 @@
         line-height: 1;
       }
 
-      #gen0 > div {
+      #gen0 > div,
+      .cell {
         height: 25px;
         width: 25px;
         display: inline-block;
@@ -29,9 +30,11 @@
         box-sizing: border-box;
       }
 
-      #gen0 > div.active { background-color: red; }
+      #gen0 > div.active,
+      .cell.active { background-color: red; }
 
-      #gen0 > div.inactive {
+      #gen0 > div.inactive,
+      .cell.inactive {
         background-color: #fff;
         border: 1px solid red;
       }
@@ -57,6 +60,58 @@
         }
       }
 
+      let row = {
+        create: function() {
+          let row = document.createElement('div');
+          automata.appendChild(row);
+          row.id = 'r' + (automata.children.length - 1);
+          row.classList.add('row');
+        }
+      }
+
+      let cells = {
+        grow: function(numCells) {
+          let row = document.getElementById('r' + (automata.children.length - 1));
+          for (let i=0; i<numCells; i++) {
+            let cell = document.createElement('div');
+            cell.classList.add('cell');
+            cell.id = 'r' + (automata.children.length - 1) + 'c' + i;
+            row.appendChild(cell);
+          }
+        },
+        randomize: function() {
+          let divs = document.querySelectorAll('#r' + (automata.children.length - 1) + ' > div');
+          Array.from(divs).map(div => div.classList.add(randomBinary() ? 'active' : 'inactive'));
+        }
+      }
+
+      let begin = function() {
+        row.create();
+        cells.grow(41);
+        cells.randomize();
+      }
+
+      // let newRowFunction = newRow.create;
+      // let boundFunction = newRowFunction.bind(newRow);
+      // boundFunction();
+
+
+      function createNewRow(numCells) {
+        let row = document.createElement('div');
+        automata.appendChild(row);
+        row.dataset.rowIndex = automata.children.length - 1;
+        addCells(numCells);
+      }
+
+      function addCells(numCells) {
+        for (let i=0; i<numCells; i++) {
+          let cell = document.createElement('div');
+          cell.classList.add('cell');
+          cell.dataset.cellIndex = 'r' + (automata.children.length - 1) + 'c' + i;
+          // return cell;
+        }
+      }
+
       function radomizeGen0() {
         let divs = document.querySelectorAll('#gen0 > div');
         Array.from(divs).map(div => div.classList.add(randomBinary() ? 'active' : 'inactive'));
@@ -76,6 +131,13 @@
       generation0();
       radomizeGen0();
       addRow();
+      createNewRow(41);
+      row.create();
+      cells.grow(41);
+      begin();
+      // newRow.growCells(41);
+      // console.log(typeof(newRow.growCells()))
+      // console.log('newRow.create()', newRow.create());
 
       /*
         REFERENCES:
@@ -83,6 +145,7 @@
         - Node.cloneNode(), https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
         - Array.from(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
         - Math.random(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
+        ParentNode.children(), https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
       */
 
     </script>
