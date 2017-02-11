@@ -12,15 +12,10 @@
     <meta name="keywords" content="">
     <style>
 
-      #automata {
-        margin: 3.5px 2.5px;
-      }
+      #automata { margin: 3.5px 2.5px; }
 
-      #gen0 {
-        line-height: 1;
-      }
+      .row { line-height: 1; }
 
-      #gen0 > div,
       .cell {
         height: 25px;
         width: 25px;
@@ -30,11 +25,9 @@
         box-sizing: border-box;
       }
 
-      #gen0 > div.active,
-      .cell.active { background-color: red; }
+      .active { background-color: red;}
 
-      #gen0 > div.inactive,
-      .cell.inactive {
+      .inactive {
         background-color: #fff;
         border: 1px solid red;
       }
@@ -44,21 +37,11 @@
 
   <body>
 
-    <main id="automata">
-      <div id="gen0"></div>
-    </main>
+    <main id="automata"></main>
 
     <script>
 
       const automata = document.getElementById('automata');
-      const gen0 = document.getElementById('gen0');
-
-      function generation0() {
-        for (let i=0; i<41; i++) {
-          let div = document.createElement('div');
-          gen0.appendChild(div);
-        }
-      }
 
       let row = {
         create: function() {
@@ -79,62 +62,66 @@
             row.appendChild(cell);
           }
         },
-        randomize: function() {
-          let divs = document.querySelectorAll('#r' + (automata.children.length - 1) + ' > div');
-          Array.from(divs).map(div => div.classList.add(randomBinary() ? 'active' : 'inactive'));
+        randomizeState: function() {
+          function randomBinary() {
+            let min = 0;
+            let max = 1;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          };
+          let cells = document.querySelectorAll('#r' + (automata.children.length - 1) + ' > div');
+          Array.from(cells).map(cell => cell.classList.add(randomBinary() ? 'active' : 'inactive'));
+        },
+        previousState: function() {
+          let previousCells = document.querySelectorAll('#r' + (automata.children.length - 2) + ' > div');
+
+          for (let i=0; i<previousCells.length; i++) {
+            let self = previousCells[i];
+            let neighborLeft = previousCells[i - 1] || previousCells[previousCells.length - 1];
+            let neighborRight = previousCells[i + 1] || previousCells[0];
+
+            console.log('cell', previousCells[i], 'score', cells.neiborhoodScore(neighborLeft, self, neighborRight));
+            // console.log('is active', cells.isActive(self), self);
+            // console.log('neighborLeft', neighborLeft)
+            // console.log('neighborRight', neighborRight)
+          }
+        },
+        isActive: function(cell) {
+          return cell.classList.contains('active');
+        },
+        neiborhoodScore: function(left, self, right) {
+          let score = (cells.isActive(left) ? '1' : '0')
+            + (cells.isActive(self) ? '1' : '0')
+            + (cells.isActive(right) ? '1' : '0');
+          return score;
+        },
+        ruleSets: {
+          90: {
+            '111': 'inactive',
+            '110': 'active',
+            '101': 'inactive',
+            '100': 'active',
+            '011': 'active',
+            '010': 'inactive',
+            '001': 'active',
+            '000': 'inactive'
+          }
         }
       }
 
       let begin = function() {
         row.create();
         cells.grow(41);
-        cells.randomize();
+        cells.randomizeState();
       }
 
-      // let newRowFunction = newRow.create;
-      // let boundFunction = newRowFunction.bind(newRow);
-      // boundFunction();
-
-
-      function createNewRow(numCells) {
-        let row = document.createElement('div');
-        automata.appendChild(row);
-        row.dataset.rowIndex = automata.children.length - 1;
-        addCells(numCells);
+      let addRow = function() {
+        row.create();
+        cells.grow(41);
+        cells.previousState();
       }
 
-      function addCells(numCells) {
-        for (let i=0; i<numCells; i++) {
-          let cell = document.createElement('div');
-          cell.classList.add('cell');
-          cell.dataset.cellIndex = 'r' + (automata.children.length - 1) + 'c' + i;
-          // return cell;
-        }
-      }
-
-      function radomizeGen0() {
-        let divs = document.querySelectorAll('#gen0 > div');
-        Array.from(divs).map(div => div.classList.add(randomBinary() ? 'active' : 'inactive'));
-      }
-
-      function randomBinary() {
-        let min = 0;
-        let max = 1;
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-
-      function addRow() {
-        let newRow = gen0.cloneNode(true);
-        automata.appendChild(newRow);
-      }
-
-      generation0();
-      radomizeGen0();
-      addRow();
-      createNewRow(41);
-      row.create();
-      cells.grow(41);
       begin();
+      addRow();
       // newRow.growCells(41);
       // console.log(typeof(newRow.growCells()))
       // console.log('newRow.create()', newRow.create());
@@ -146,6 +133,12 @@
         - Array.from(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
         - Math.random(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
         ParentNode.children(), https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
+        - getElementById(), https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+        - Node.insertBefore(), https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
+        - Node.firstChild, https://developer.mozilla.org/en-US/docs/Web/API/Node/firstChild
+        - NodeList.forEach(), https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
+        - #Objects and properties, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Objects_and_properties
+
       */
 
     </script>
