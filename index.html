@@ -13,7 +13,7 @@
     <style>
 
       #automata {
-        margin: 2px .5px;
+        margin: 0 .5px;
       }
 
       .row {
@@ -45,20 +45,24 @@
     <script>
 
       const automata = document.getElementById('automata');
+      const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-      let row = {
+      let rows = {
         create: function() {
           let row = document.createElement('div');
           automata.appendChild(row);
           row.id = 'r' + (automata.children.length - 1);
           row.classList.add('row');
-        }
+        },
+        numRowsPerViewport: (vh / 10)
       }
 
       let cells = {
-        grow: function(numCells) {
+        numCellsPerRow: (vw/10) - 1,
+        grow: function() {
           let row = document.getElementById('r' + (automata.children.length - 1));
-          for (let i=0; i<numCells; i++) {
+          for (let i=0; i<cells.numCellsPerRow; i++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
             cell.id = 'r' + (automata.children.length - 1) + 'c' + i;
@@ -84,7 +88,7 @@
             let prevNeighborLeft = previousCells[i - 1] || previousCells[previousCells.length - 1];
             let prevNeighborRight = previousCells[i + 1] || previousCells[0];
 
-            self.classList.add(cells.ruleSets[ruleSet][cells.neiborhoodScore(prevNeighborLeft, prevSelf, prevNeighborRight)]);
+            self.classList.add(ruleSets[ruleSet][cells.neiborhoodScore(prevNeighborLeft, prevSelf, prevNeighborRight)]);
           }
         },
         isActive: function(cell) {
@@ -95,139 +99,83 @@
             + (cells.isActive(prevSelf) ? '1' : '0')
             + (cells.isActive(prevRight) ? '1' : '0');
           return score;
-        },
-        ruleSets: {
-          1: {
-            wolframSolution: [0, 0, 0, 0, 0, 0, 0, 1],
-            '111': 'inactive',
-            '110': 'inactive',
-            '101': 'inactive',
-            '100': 'inactive',
-            '011': 'inactive',
-            '010': 'inactive',
-            '001': 'inactive',
-            '000': 'active'
-          },
-          7: {
-            wolframSolution: [0, 0, 0, 0, 0, 1, 1, 1],
-            '111': 'inactive',
-            '110': 'inactive',
-            '101': 'inactive',
-            '100': 'inactive',
-            '011': 'inactive',
-            '010': 'active',
-            '001': 'active',
-            '000': 'active'
-          },
-          62: {
-            wolframSolution: [0, 0, 1, 1, 1, 1, 1, 0],
-            '111': 'inactive',
-            '110': 'inactive',
-            '101': 'active',
-            '100': 'active',
-            '011': 'active',
-            '010': 'active',
-            '001': 'active',
-            '000': 'inactive'
-          },
-          90: {
-            wolframSolution: [0, 1, 0, 1, 1, 0, 1, 0],
-            '111': 'inactive',
-            '110': 'active',
-            '101': 'inactive',
-            '100': 'active',
-            '011': 'active',
-            '010': 'inactive',
-            '001': 'active',
-            '000': 'inactive'
-          },
-          110: {
-            wolframSolution: [0, 1, 1, 0, 1, 1, 1, 0],
-            '111': 'inactive',
-            '110': 'active',
-            '101': 'active',
-            '100': 'inactive',
-            '011': 'active',
-            '010': 'active',
-            '001': 'active',
-            '000': 'inactive'
-          }
         }
       }
 
-      let begin = function() {
-        row.create();
-        cells.grow(143);
+      let ruleSets = {
+        1: {
+          wolframSolution: [0, 0, 0, 0, 0, 0, 0, 1],
+          '111': 'inactive',
+          '110': 'inactive',
+          '101': 'inactive',
+          '100': 'inactive',
+          '011': 'inactive',
+          '010': 'inactive',
+          '001': 'inactive',
+          '000': 'active'
+        },
+        7: {
+          wolframSolution: [0, 0, 0, 0, 0, 1, 1, 1],
+          '111': 'inactive',
+          '110': 'inactive',
+          '101': 'inactive',
+          '100': 'inactive',
+          '011': 'inactive',
+          '010': 'active',
+          '001': 'active',
+          '000': 'active'
+        },
+        62: {
+          wolframSolution: [0, 0, 1, 1, 1, 1, 1, 0],
+          '111': 'inactive',
+          '110': 'inactive',
+          '101': 'active',
+          '100': 'active',
+          '011': 'active',
+          '010': 'active',
+          '001': 'active',
+          '000': 'inactive'
+        },
+        90: {
+          wolframSolution: [0, 1, 0, 1, 1, 0, 1, 0],
+          '111': 'inactive',
+          '110': 'active',
+          '101': 'inactive',
+          '100': 'active',
+          '011': 'active',
+          '010': 'inactive',
+          '001': 'active',
+          '000': 'inactive'
+        },
+        110: {
+          wolframSolution: [0, 1, 1, 0, 1, 1, 1, 0],
+          '111': 'inactive',
+          '110': 'active',
+          '101': 'active',
+          '100': 'inactive',
+          '011': 'active',
+          '010': 'active',
+          '001': 'active',
+          '000': 'inactive'
+        }
+      }
+
+      let actOfGod = function() {
+        rows.create();
+        cells.grow();
         cells.godMode();
       }
 
-      let addRow = function() {
-        row.create();
-        cells.grow(143);
-        cells.natureMode(110);
+      let actOfNature = function(ruleSet) {
+        for (let i = 1; i < rows.numRowsPerViewport; i++) {
+          rows.create();
+          cells.grow();
+          cells.natureMode(ruleSet);
+        }
       }
 
-      begin();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
-      addRow();
+      actOfGod();
+      actOfNature(110);
       // newRow.growCells(41);
       // console.log(typeof(newRow.growCells()))
       // console.log('newRow.create()', newRow.create());
@@ -244,7 +192,9 @@
         - Node.firstChild, https://developer.mozilla.org/en-US/docs/Web/API/Node/firstChild
         - NodeList.forEach(), https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
         - #Objects and properties, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Objects_and_properties
-
+        - Element.classList, https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+        - Viewport width and height in js, http://stackoverflow.com/a/8876069/2145103
+        -
       */
 
     </script>
