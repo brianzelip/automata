@@ -12,13 +12,9 @@
     <meta name="keywords" content="">
     <style>
 
-      #automata {
-        margin: 0 auto;
-      }
+      #automata {}
 
-      .row {
-        line-height: .5;
-      }
+      .row { line-height: .5; }
 
       .cell {
         height: 10px;
@@ -68,7 +64,7 @@
             row.appendChild(cell);
           }
         },
-        numCellsPerRow: ((Math.round(vw/10)) - 1),
+        numCellsPerRow: ((Math.round(vw / 10)) - 1),
         godMode: function() {
           function randomBinary() {
             let min = 0;
@@ -182,13 +178,13 @@
         }
       }
 
-      let actOfGod = function() {
+      let initGod = function() {
         rows.create();
         cells.grow();
         cells.godMode();
       }
 
-      let actOfNature = function(ruleSet) {
+      let initNature = function(ruleSet) {
         for (let i = 1; i < rows.numRowsPerViewport; i++) {
           rows.create();
           cells.grow();
@@ -196,12 +192,8 @@
         }
       }
 
-      actOfGod();
-      actOfNature(110);
-      dataScrapes.scrapeSolution(90);
-      // newRow.growCells(41);
-      // console.log(typeof(newRow.growCells()))
-      // console.log('newRow.create()', newRow.create());
+      initGod();
+      initNature(62);
 
       /*
         REFERENCES:
