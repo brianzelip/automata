@@ -1,0 +1,26 @@
+{
+  "name": "ca-data",
+  "description": "Get all rules for elementary, one-dimensional, cellular automata from Wolfram Atlas",
+  "author": "Brian Zelip",
+  "version": "0.0.1",
+  "files": [
+    "build.js"
+  ],
+  "scripts": {
+    "build": "node build"
+  },
+  "repository": "",
+  "keywords": [
+    "cellular automata",
+    "Wolfram",
+    "javascript"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "cheerio": "^0.19.0",
+    "each-async": "^1.1.1",
+    "got": "^5.0.0",
+    "single-trailing-newline": "^1.0.0"
+  }
+}
