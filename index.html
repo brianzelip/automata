@@ -12,22 +12,25 @@
     <meta name="keywords" content="">
     <style>
 
-      #automata { margin: 3.5px 2.5px; }
+      #automata {
+        margin: 2px .5px;
+      }
 
-      .row { line-height: 1; }
+      .row {
+        line-height: .5;
+      }
 
       .cell {
-        height: 25px;
-        width: 25px;
+        height: 10px;
+        width: 10px;
         display: inline-block;
         /*border-radius: 50%;*/
-        margin: 3.5px 5px;
         box-sizing: border-box;
       }
 
-      .active { background-color: red;}
+      .inactive { background-color: red;}
 
-      .inactive {
+      .active {
         background-color: #fff;
         border: 1px solid red;
       }
@@ -62,7 +65,7 @@
             row.appendChild(cell);
           }
         },
-        randomizeState: function() {
+        godMode: function() {
           function randomBinary() {
             let min = 0;
             let max = 1;
@@ -71,31 +74,64 @@
           let cells = document.querySelectorAll('#r' + (automata.children.length - 1) + ' > div');
           Array.from(cells).map(cell => cell.classList.add(randomBinary() ? 'active' : 'inactive'));
         },
-        previousState: function() {
+        natureMode: function(ruleSet) {
           let previousCells = document.querySelectorAll('#r' + (automata.children.length - 2) + ' > div');
+          let currentCells = document.querySelectorAll('#r' + (automata.children.length - 1) + ' > div');
 
-          for (let i=0; i<previousCells.length; i++) {
-            let self = previousCells[i];
-            let neighborLeft = previousCells[i - 1] || previousCells[previousCells.length - 1];
-            let neighborRight = previousCells[i + 1] || previousCells[0];
+          for (let i=0; i<currentCells.length; i++) {
+            let self = currentCells[i];
+            let prevSelf = previousCells[i];
+            let prevNeighborLeft = previousCells[i - 1] || previousCells[previousCells.length - 1];
+            let prevNeighborRight = previousCells[i + 1] || previousCells[0];
 
-            console.log('cell', previousCells[i], 'score', cells.neiborhoodScore(neighborLeft, self, neighborRight));
-            // console.log('is active', cells.isActive(self), self);
-            // console.log('neighborLeft', neighborLeft)
-            // console.log('neighborRight', neighborRight)
+            self.classList.add(cells.ruleSets[ruleSet][cells.neiborhoodScore(prevNeighborLeft, prevSelf, prevNeighborRight)]);
           }
         },
         isActive: function(cell) {
           return cell.classList.contains('active');
         },
-        neiborhoodScore: function(left, self, right) {
-          let score = (cells.isActive(left) ? '1' : '0')
-            + (cells.isActive(self) ? '1' : '0')
-            + (cells.isActive(right) ? '1' : '0');
+        neiborhoodScore: function(prevLeft, prevSelf, prevRight) {
+          let score = (cells.isActive(prevLeft) ? '1' : '0')
+            + (cells.isActive(prevSelf) ? '1' : '0')
+            + (cells.isActive(prevRight) ? '1' : '0');
           return score;
         },
         ruleSets: {
+          1: {
+            wolframSolution: [0, 0, 0, 0, 0, 0, 0, 1],
+            '111': 'inactive',
+            '110': 'inactive',
+            '101': 'inactive',
+            '100': 'inactive',
+            '011': 'inactive',
+            '010': 'inactive',
+            '001': 'inactive',
+            '000': 'active'
+          },
+          7: {
+            wolframSolution: [0, 0, 0, 0, 0, 1, 1, 1],
+            '111': 'inactive',
+            '110': 'inactive',
+            '101': 'inactive',
+            '100': 'inactive',
+            '011': 'inactive',
+            '010': 'active',
+            '001': 'active',
+            '000': 'active'
+          },
+          62: {
+            wolframSolution: [0, 0, 1, 1, 1, 1, 1, 0],
+            '111': 'inactive',
+            '110': 'inactive',
+            '101': 'active',
+            '100': 'active',
+            '011': 'active',
+            '010': 'active',
+            '001': 'active',
+            '000': 'inactive'
+          },
           90: {
+            wolframSolution: [0, 1, 0, 1, 1, 0, 1, 0],
             '111': 'inactive',
             '110': 'active',
             '101': 'inactive',
@@ -104,23 +140,93 @@
             '010': 'inactive',
             '001': 'active',
             '000': 'inactive'
+          },
+          110: {
+            wolframSolution: [0, 1, 1, 0, 1, 1, 1, 0],
+            '111': 'inactive',
+            '110': 'active',
+            '101': 'active',
+            '100': 'inactive',
+            '011': 'active',
+            '010': 'active',
+            '001': 'active',
+            '000': 'inactive'
           }
         }
       }
 
       let begin = function() {
         row.create();
-        cells.grow(41);
-        cells.randomizeState();
+        cells.grow(143);
+        cells.godMode();
       }
 
       let addRow = function() {
         row.create();
-        cells.grow(41);
-        cells.previousState();
+        cells.grow(143);
+        cells.natureMode(110);
       }
 
       begin();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
+      addRow();
       addRow();
       // newRow.growCells(41);
       // console.log(typeof(newRow.growCells()))
