@@ -15,6 +15,7 @@
       #cellular-world {
         width: 600px;
         height: 600px;
+        margin: 0 auto;
       }
 
       .row { line-height: .5; }
@@ -70,6 +71,11 @@
       const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
       //variable to capture row and cell measurements
+      /*
+        argh!!! damn safari inserts its own stylesheet AFTER all of the document's stylesheets, so my code below doesn't work for targeting the css style values in safari.
+        A solution might lie in https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement, especially CSSValues or something similar.
+        HOWEVER - i'm not trying to go forward with the approach of defining these key variables based on the hard coded css values. instead i'm thinking about implementing media queries to determine the layout based on device viewport, and THEN define the cell and row variables below based on the dimensions of #cellular-world.
+      */
       const internalStyleSheet = document.styleSheets[document.styleSheets.length - 1];
       const worldWidth = internalStyleSheet["cssRules"][0]["style"]["width"].replace('px', '');
       const worldHeight = internalStyleSheet["cssRules"][0]["style"]["height"].replace('px', '');
