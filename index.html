@@ -60,7 +60,7 @@
         //see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
         xhr.send();
       }
-      fetchJSON('ca-data/ruleSets.json', (data) => { ruleSets = data });
+      fetchJSON('data/ruleSets.json', (data) => { ruleSets = data });
 
       const automata = document.getElementById('automata');
       const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
