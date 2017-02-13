@@ -12,7 +12,10 @@
     <meta name="keywords" content="cellular automata">
     <style>
 
-      #automata {}
+      #cellular-world {
+        width: 600px;
+        height: 600px;
+      }
 
       .row { line-height: .5; }
 
@@ -36,7 +39,7 @@
 
   <body>
 
-    <main id="automata"></main>
+    <main id="cellular-world"></main>
 
     <script>
 
@@ -62,43 +65,51 @@
       }
       fetchJSON('data/ruleSets.json', (data) => { ruleSets = data });
 
-      const automata = document.getElementById('automata');
+      const cw = document.getElementById('cellular-world');
       const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+      //variable to capture row and cell measurements
+      const internalStyleSheet = document.styleSheets[document.styleSheets.length - 1];
+      const worldWidth = internalStyleSheet["cssRules"][0]["style"]["width"].replace('px', '');
+      const worldHeight = internalStyleSheet["cssRules"][0]["style"]["height"].replace('px', '');
+      const cellSize = internalStyleSheet["cssRules"][2]["style"]["height"].replace('px', '');
 
       let rows = {
         create: function() {
           let row = document.createElement('div');
-          automata.appendChild(row);
-          row.id = 'r' + (automata.children.length - 1);
+          cw.appendChild(row);
+          row.id = 'r' + (cw.children.length - 1);
           row.classList.add('row');
         },
-        numRowsPerViewport: ((Math.round(vh / 10)) - 1)
+        numRowsPerViewport: ((Math.round(vh / cellSize)) - 1),
+        numRowsPerWorld: ((Math.round(worldHeight / cellSize)) - 1)
       }
 
       let cells = {
         grow: function() {
-          let row = document.getElementById('r' + (automata.children.length - 1));
-          for (let i=0; i<cells.numCellsPerRow; i++) {
+          let row = document.getElementById('r' + (cw.children.length - 1));
+          for (let i=0; i<cells.numCellsPerRowPerWorld; i++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
-            cell.id = 'r' + (automata.children.length - 1) + 'c' + i;
+            cell.id = 'r' + (cw.children.length - 1) + 'c' + i;
             row.appendChild(cell);
           }
         },
-        numCellsPerRow: ((Math.round(vw / 10)) - 1),
+        numCellsPerRow: ((Math.round(vw / cellSize)) - 1),
+        numCellsPerRowPerWorld: ((Math.round(worldWidth / cellSize)) - 1),
         godMode: function() {
           function randomBinary() {
             let min = 0;
             let max = 1;
             return Math.floor(Math.random() * (max - min + 1)) + min;
           };
-          let cells = document.querySelectorAll('#r' + (automata.children.length - 1) + ' > div');
+          let cells = document.querySelectorAll('#r' + (cw.children.length - 1) + ' > div');
           Array.from(cells).map(cell => cell.classList.add(randomBinary() ? 'active' : 'inactive'));
         },
         natureMode: function(ruleSet) {
-          let previousCells = document.querySelectorAll('#r' + (automata.children.length - 2) + ' > div');
-          let currentCells = document.querySelectorAll('#r' + (automata.children.length - 1) + ' > div');
+          let previousCells = document.querySelectorAll('#r' + (cw.children.length - 2) + ' > div');
+          let currentCells = document.querySelectorAll('#r' + (cw.children.length - 1) + ' > div');
 
           for (let i=0; i<currentCells.length; i++) {
             let self = currentCells[i];
@@ -127,7 +138,7 @@
       }
 
       let initNature = function(ruleSet) {
-        for (let i = 1; i < rows.numRowsPerViewport; i++) {
+        for (let i = 1; i < rows.numRowsPerWorld; i++) {
           rows.create();
           cells.grow();
           cells.natureMode(ruleSet);
