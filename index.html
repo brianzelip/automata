@@ -98,109 +98,2567 @@
         }
       }
 
-      let rules = {
-        "neighborhoodPossibilities": {
-          0: "111",
-          1: "110",
-          2: "101",
-          3: "100",
-          4: "011",
-          5: "010",
-          6: "001",
-          7: "000"
-        },
-        "solutions": {
-          0: {
-            0: "0",
-            1: "0",
-            2: "0",
-            3: "0",
-            4: "0",
-            5: "0",
-            6: "0",
-            7: "0"
-          },
-          1: {
-            0: "0",
-            1: "0",
-            2: "0",
-            3: "0",
-            4: "0",
-            5: "0",
-            6: "0",
-            7: "1"
-          },
-          2: {
-            0: "0",
-            1: "0",
-            2: "0",
-            3: "0",
-            4: "0",
-            5: "0",
-            6: "1",
-            7: "0"
-          }
-        }
-      }
-
-
       let ruleSets = {
-        "1": {
-          "wolframSolution": [0, 0, 0, 0, 0, 0, 0, 1],
-          "111": "inactive",
-          "110": "inactive",
-          "101": "inactive",
+        "0": {
           "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "1": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
           "011": "inactive",
           "010": "inactive",
           "001": "inactive",
           "000": "active"
         },
-        "7": {
-          "wolframSolution": [0, 0, 0, 0, 0, 1, 1, 1],
-          "111": "inactive",
-          "110": "inactive",
-          "101": "inactive",
+        "2": {
           "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "3": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "4": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "5": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "6": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "7": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
           "011": "inactive",
           "010": "active",
           "001": "active",
           "000": "active"
         },
-        "62": {
-          "wolframSolution": [0, 0, 1, 1, 1, 1, 1, 0],
-          "111": "inactive",
+        "8": {
+          "100": "inactive",
+          "101": "inactive",
           "110": "inactive",
-          "101": "active",
-          "100": "active",
+          "111": "inactive",
           "011": "active",
-          "010": "active",
-          "001": "active",
+          "010": "inactive",
+          "001": "inactive",
           "000": "inactive"
         },
-        "90": {
-          "wolframSolution": [0, 1, 0, 1, 1, 0, 1, 0],
-          "111": "inactive",
-          "110": "active",
+        "9": {
+          "100": "inactive",
           "101": "inactive",
-          "100": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "10": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
           "011": "active",
           "010": "inactive",
           "001": "active",
           "000": "inactive"
         },
-        "110": {
-          "wolframSolution": [0, 1, 1, 0, 1, 1, 1, 0],
-          "111": "inactive",
-          "110": "active",
-          "101": "active",
+        "11": {
           "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "12": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "13": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "14": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
           "011": "active",
           "010": "active",
           "001": "active",
           "000": "inactive"
         },
-        "numbersArr": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "140", "141", "142", "143", "144", "145", "146", "147", "148", "149", "150", "151", "152", "153", "154", "155", "156", "157", "158", "159", "160", "161", "162", "163", "164", "165", "166", "167", "168", "169", "170", "171", "172", "173", "174", "175", "176", "177", "178", "179", "180", "181", "182", "183", "184", "185", "186", "187", "188", "189", "190", "191", "192", "193", "194", "195", "196", "197", "198", "199", "200", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214", "215", "216", "217", "218", "219", "220", "221", "222", "223", "224", "225", "226", "227", "228", "229", "230", "231", "232", "233", "234", "235", "236", "237", "238", "239", "240", "241", "242", "243", "244", "245", "246", "247", "248", "249", "250", "251", "252", "253", "254", "255", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "140", "141", "142", "143", "144", "145", "146", "147", "148", "149", "150", "151", "152", "153", "154", "155", "156", "157", "158", "159", "160", "161", "162", "163", "164", "165", "166", "167", "168", "169", "170", "171", "172", "173", "174", "175", "176", "177", "178", "179", "180", "181", "182", "183", "184", "185", "186", "187", "188", "189", "190", "191", "192", "193", "194", "195", "196", "197", "198", "199", "200", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214", "215", "216", "217", "218", "219", "220", "221", "222", "223", "224", "225", "226", "227", "228", "229", "230", "231", "232", "233", "234", "235", "236", "237", "238", "239", "240", "241", "242", "243", "244", "245", "246", "247", "248", "249", "250", "251", "252", "253", "254", "255"]
+        "15": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "16": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "17": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "18": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "19": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "20": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "21": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "22": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "23": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "24": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "25": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "26": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "27": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "28": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "29": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "30": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "31": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "32": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "33": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "34": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "35": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "36": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "37": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "38": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "39": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "40": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "41": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "42": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "43": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "44": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "45": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "46": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "47": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "48": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "49": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "50": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "51": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "52": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "53": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "54": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "55": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "56": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "57": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "58": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "59": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "60": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "61": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "62": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "63": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "64": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "65": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "66": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "67": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "68": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "69": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "70": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "71": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "72": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "73": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "74": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "75": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "76": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "77": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "78": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "79": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "80": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "81": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "82": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "83": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "84": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "85": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "86": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "87": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "88": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "89": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "90": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "91": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "92": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "93": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "94": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "95": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "96": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "97": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "98": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "99": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "100": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "101": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "102": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "103": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "104": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "105": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "106": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "107": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "108": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "109": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "110": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "111": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "112": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "113": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "114": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "115": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "116": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "117": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "118": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "119": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "120": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "121": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "122": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "123": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "124": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "125": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "126": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "127": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "inactive",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "128": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "129": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "130": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "131": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "132": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "133": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "134": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "135": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "136": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "137": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "138": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "139": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "140": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "141": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "142": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "143": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "144": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "145": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "146": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "147": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "148": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "149": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "150": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "151": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "152": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "153": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "154": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "155": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "156": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "157": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "158": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "159": {
+          "100": "active",
+          "101": "inactive",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "160": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "161": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "162": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "163": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "164": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "165": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "166": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "167": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "168": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "169": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "170": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "171": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "172": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "173": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "174": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "175": {
+          "100": "inactive",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "176": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "177": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "178": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "179": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "180": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "181": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "182": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "183": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "184": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "185": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "186": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "187": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "188": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "189": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "190": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "191": {
+          "100": "active",
+          "101": "active",
+          "110": "inactive",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "192": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "193": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "194": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "195": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "196": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "197": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "198": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "199": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "200": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "201": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "202": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "203": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "204": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "205": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "206": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "207": {
+          "100": "inactive",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "208": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "209": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "210": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "211": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "212": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "213": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "214": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "215": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "216": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "217": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "218": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "219": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "220": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "221": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "222": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "223": {
+          "100": "active",
+          "101": "inactive",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "224": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "225": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "226": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "227": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "228": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "229": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "230": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "231": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "232": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "233": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "234": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "235": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "236": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "237": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "238": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "239": {
+          "100": "inactive",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "240": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "241": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "242": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "243": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "244": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "245": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "246": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "247": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "inactive",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        },
+        "248": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "249": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "inactive",
+          "000": "active"
+        },
+        "250": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "inactive"
+        },
+        "251": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "inactive",
+          "001": "active",
+          "000": "active"
+        },
+        "252": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "inactive"
+        },
+        "253": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "inactive",
+          "000": "active"
+        },
+        "254": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "inactive"
+        },
+        "255": {
+          "100": "active",
+          "101": "active",
+          "110": "active",
+          "111": "active",
+          "011": "active",
+          "010": "active",
+          "001": "active",
+          "000": "active"
+        }
       }
 
       let dataScrapes = {
@@ -239,7 +2697,7 @@
       }
 
       initGod();
-      initNature(62);
+      initNature(99);
 
       /*
         REFERENCES:
