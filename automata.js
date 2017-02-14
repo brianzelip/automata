@@ -43,8 +43,8 @@ let rows = {
     row.id = 'r' + (cw.children.length - 1);
     row.classList.add('row');
   },
-  numRowsPerViewport: ((Math.round(vh / cellSize)) - 1),
-  numRowsPerWorld: ((Math.round(worldHeight / cellSize)) - 1)
+  numRowsPerViewport: ((Math.round(vh / cellSize))),
+  numRowsPerWorld: ((Math.round(worldHeight / cellSize)))
 }
 
 let cells = {
@@ -57,8 +57,8 @@ let cells = {
       row.appendChild(cell);
     }
   },
-  numCellsPerRow: ((Math.round(vw / cellSize)) - 1),
-  numCellsPerRowPerWorld: ((Math.round(worldWidth / cellSize)) - 1),
+  numCellsPerRow: ((Math.round(vw / cellSize))),
+  numCellsPerRowPerWorld: ((Math.round(worldWidth / cellSize))),
   godMode: function() {
     function randomBinary() {
       let min = 0;
@@ -106,8 +106,36 @@ let initNature = function(ruleSet) {
   }
 }
 
+let interactions = {
+  select: document.querySelector('select'),
+  ruleSetOptions: function(index) {
+    let option = document.createElement('option');
+    interactions.select.appendChild(option);
+    option.setAttribute('value', index);
+    option.innerText = index;
+    // option.classList.add('row');
+  },
+  numRules: 256,
+  initRuleOptions: function() {
+    for (let i=0; i<interactions.numRules; i++) {
+      interactions.ruleSetOptions(i);
+    };
+    interactions.randomRuleSelect();
+  },
+  randomRule: function() {
+    min = Math.ceil(0);
+    max = Math.floor(255);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  randomRuleSelect: function() {
+    let options = document.querySelectorAll('option');
+    options[interactions.randomRule()].setAttribute('selected', true);
+  }
+}
+
 initGod();
 initNature(110);
+interactions.initRuleOptions();
 
 /*
   REFERENCES:
