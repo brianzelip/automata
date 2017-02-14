@@ -37,24 +37,24 @@
 
       .justify-content-center { justify-content: center; }
       .justify-content-between { justify-content: space-between; }
+      .justify-content-around { justify-content: space-around; }
 
     </style>
   </head>
 
   <body>
 
-    <header class="container">
-      <form class="clearfix flex flex-center justify-content-between">
+    <header class="container flex flex-center justify-content-between">
+      <h1 class="m0">Automata</h1>
+      <form class="clearfix flex flex-center justify-content-around">
         <div>
-          <h1 class="m0">Automata</h1>
+          <label class="">Showing rule: </label>
+          <select type="select" class="field rounded-left x-group-item"></select>
         </div>
-        <label class="hide">Bacon</label>
-        <select type="select" class="field rounded-left x-group-item" placeholder="Bacon">
-          
-        </select>
         <label class="hide">Pancakes</label>
-        <input type="password" class="field not-rounded x-group-item" placeholder="Pancakes">
-        <button type="submit" class="btn btn-primary rounded-right">Pancake</button>
+        <input type="password" class="field x-group-item ml2" placeholder="Pancakes">
+        <button type="submit" class="btn btn-primary ml2">Pancake</button>
+        </div>
       </form>
     </header>
 

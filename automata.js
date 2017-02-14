@@ -120,18 +120,26 @@ let interactions = {
     for (let i=0; i<interactions.numRules; i++) {
       interactions.ruleSetOptions(i);
     };
-    interactions.randomRuleSelect();
+    interactions.selectRandomRule();
   },
   randomRule: function() {
     min = Math.ceil(0);
     max = Math.floor(255);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   },
-  randomRuleSelect: function() {
+  selectRandomRule: function() {
     let options = document.querySelectorAll('option');
     options[interactions.randomRule()].setAttribute('selected', true);
   }
 }
+
+interactions.select.addEventListener('change', function() {
+  let index = interactions.select.selectedIndex;
+  let allRows = document.querySelectorAll('#main > div');
+  allRows.forEach(row => row.remove());
+  initGod();
+  initNature(index);
+})
 
 initGod();
 initNature(110);
