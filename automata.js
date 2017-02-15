@@ -25,6 +25,10 @@ const cw = document.getElementById('cellular-world');
 const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
+const select = document.querySelector('select');
+const numRules = 256;
+const currentRule = randomRule();
+
 //variable to capture row and cell measurements
 /*
   argh!!! damn safari inserts its own stylesheet AFTER all of the document's stylesheets, so my code below doesn't work for targeting the css style values in safari.
@@ -106,44 +110,48 @@ let initNature = function(ruleSet) {
   }
 }
 
-let interactions = {
-  select: document.querySelector('select'),
-  ruleSetOptions: function(index) {
-    let option = document.createElement('option');
-    interactions.select.appendChild(option);
-    option.setAttribute('value', index);
-    option.innerText = index;
-    // option.classList.add('row');
-  },
-  numRules: 256,
-  initRuleOptions: function() {
-    for (let i=0; i<interactions.numRules; i++) {
-      interactions.ruleSetOptions(i);
-    };
-    interactions.selectRandomRule();
-  },
-  randomRule: function() {
-    min = Math.ceil(0);
-    max = Math.floor(255);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  },
-  selectRandomRule: function() {
-    let options = document.querySelectorAll('option');
-    options[interactions.randomRule()].setAttribute('selected', true);
-  }
-}
 
-interactions.select.addEventListener('change', function() {
-  let index = interactions.select.selectedIndex;
-  let allRows = document.querySelectorAll('#main > div');
-  allRows.forEach(row => row.remove());
+function ruleSetOptions(index) {
+  let option = document.createElement('option');
+  select.appendChild(option);
+  option.setAttribute('value', index);
+  option.innerText = index;
+  // option.classList.add('row');
+};
+
+function initRuleOptions() {
+  for (let i=0; i<numRules; i++) {
+    ruleSetOptions(i);
+  };
+  selectRandomRule();
+};
+
+function randomRule() {
+  min = Math.ceil(0);
+  max = Math.floor(255);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+function selectRandomRule() {
+  let options = document.querySelectorAll('option');
+  options[randomRule()].setAttribute('selected', true);
+};
+
+function clearWorld() {
+  while (cw.lastChild) {
+    cw.removeChild(cw.lastChild);
+  };
+};
+
+select.addEventListener('change', function() {
+  clearWorld();
   initGod();
-  initNature(index);
+  initNature(110);
 })
 
 initGod();
-initNature(110);
-interactions.initRuleOptions();
+initNature(currentRule);
+initRuleOptions();
 
 /*
   REFERENCES:
