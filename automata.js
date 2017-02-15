@@ -176,3 +176,11 @@ initRuleOptions();
   - JSON.parse(), https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
   -
 */
+
+
+/*
+next ideas:
+- let randomRuleOnPageLoad =
+- addEventListener to select element that when changed, passes the selection value as the ruleSet to initNature().
+- figure out the Safari bug
+*/
