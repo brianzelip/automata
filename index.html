@@ -13,8 +13,8 @@
     <style>
 
       #cellular-world {
-        width: 1440px;
-        height: 600px;
+        /*width: 1440px;*/
+        /*height: 600px;*/
         margin: 0 auto;
       }
 
@@ -39,26 +39,30 @@
       .justify-content-between { justify-content: space-between; }
       .justify-content-around { justify-content: space-around; }
 
+      .colorpicker {
+        
+      }
+
     </style>
   </head>
 
   <body>
 
-    <header class="container flex flex-center justify-content-between">
+    <header class="container flex flex-center justify-content-between py2">
       <h1 class="m0">Automata</h1>
       <form class="clearfix flex flex-center justify-content-around">
         <div>
           <label class="">Showing rule: </label>
-          <select type="select" class="field rounded-left x-group-item"></select>
+          <select type="select" class="field"></select>
         </div>
-        <label class="hide">Pancakes</label>
-        <input type="password" class="field x-group-item ml2" placeholder="Pancakes">
-        <a id="refresh" class="btn btn-primary ml2">Clear</a>
+        <label class="hide">Color Picker</label>
+        <input type="color" class="field ml2 colorpicker" placeholder="Pancakes">
+        <a id="clear" class="btn btn-primary ml2">Clear</a>
         </div>
       </form>
     </header>
 
-    <main id="cellular-world"></main>
+    <main id="cellular-world" class="container"></main>
 
     <script src="automata.js"></script>
 

@@ -1,6 +1,26 @@
 
 let ruleSets = {};
 
+const cw = document.getElementById('cellular-world');
+const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+const select = document.querySelector('select');
+let selectOptions = document.querySelectorAll('option');
+const numRules = 256;
+const randomRuleOnPageLoad = randomRule();
+const clearBtn = document.getElementById('clear');
+
+const internalStyleSheet = document.styleSheets[document.styleSheets.length - 1];
+// const worldWidth = internalStyleSheet["cssRules"][0]["style"]["width"].replace('px', '');
+// const worldHeight = internalStyleSheet["cssRules"][0]["style"]["height"].replace('px', '');
+// const cellSize = internalStyleSheet["cssRules"][2]["style"]["height"].replace('px', '');
+
+const worldWidth = (cw.offsetWidth - 1);
+const worldHeight = (vh - document.querySelector('header').offsetHeight) - 16;
+const cellSize = internalStyleSheet["cssRules"][2]["style"]["height"].replace('px', '');
+
+
 //XHR code to load external json
 //adapted from http://stackoverflow.com/a/14388512/2145103
 function fetchJSON(path, callback) {
@@ -21,31 +41,19 @@ function fetchJSON(path, callback) {
 }
 fetchJSON('data/ruleSets.json', (data) => { ruleSets = data });
 
-const cw = document.getElementById('cellular-world');
-const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-
-const select = document.querySelector('select');
-const numRules = 256;
-const currentRule = randomRule();
-
 //variable to capture row and cell measurements
 /*
   argh!!! damn safari inserts its own stylesheet AFTER all of the document's stylesheets, so my code below doesn't work for targeting the css style values in safari.
   A solution might lie in https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement, especially CSSValues or something similar.
   HOWEVER - i'm not trying to go forward with the approach of defining these key variables based on the hard coded css values. instead i'm thinking about implementing media queries to determine the layout based on device viewport, and THEN define the cell and row variables below based on the dimensions of #cellular-world.
 */
-const internalStyleSheet = document.styleSheets[document.styleSheets.length - 1];
-const worldWidth = internalStyleSheet["cssRules"][0]["style"]["width"].replace('px', '');
-const worldHeight = internalStyleSheet["cssRules"][0]["style"]["height"].replace('px', '');
-const cellSize = internalStyleSheet["cssRules"][2]["style"]["height"].replace('px', '');
 
 let rows = {
   create: function() {
     let row = document.createElement('div');
     cw.appendChild(row);
     row.id = 'r' + (cw.children.length - 1);
-    row.classList.add('row');
+    row.classList.add('row', 'center');
   },
   numRowsPerViewport: ((Math.round(vh / cellSize))),
   numRowsPerWorld: ((Math.round(worldHeight / cellSize)))
@@ -143,14 +151,28 @@ function clearWorld() {
   };
 };
 
-select.addEventListener('change', function() {
+clearBtn.addEventListener('click', function() {
   clearWorld();
-  initGod();
-  initNature(110);
 })
 
+function renderUserSelectedRule(ruleNumber) {
+  clearWorld();
+  initGod();
+  initNature(ruleNumber);
+};
+
+select.addEventListener('change', function() {
+  let ruleSelectedByUser = this.value;
+  renderUserSelectedRule(ruleSelectedByUser);
+});
+
+// selectOptions.addEventListener('keydown', function() {
+//   let ruleSelectedByUser = this.value
+//   renderUserSelectedRule(ruleSelectedByUser);
+// });
+
 initGod();
-initNature(currentRule);
+initNature(randomRuleOnPageLoad);
 initRuleOptions();
 
 /*
@@ -183,4 +205,5 @@ next ideas:
 - let randomRuleOnPageLoad =
 - addEventListener to select element that when changed, passes the selection value as the ruleSet to initNature().
 - figure out the Safari bug
+- make #cellular-world have a dynamic width based on the viewport sizes at page load (so as to not dig into CSS stylesheets and whatnot)
 */
