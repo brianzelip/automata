@@ -218,6 +218,22 @@ initRuleOptions();
   - JSON.stringify(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
   - using .offsetWidth & .offsetHeight to get element size, http://stackoverflow.com/a/294273/2145103
 
+  # References for accessing stylesheets and indexed rules (yikes - sounds unscalable!) via javascript, all for getting the cell dimensions.
+  - https://developer.mozilla.org/en-US/docs/Web/API/CSSRuleList
+  - CSSRuleList, https://developer.mozilla.org/en-US/docs/Web/API/CSSRuleList
+  - StyleSheet, https://developer.mozilla.org/en-US/docs/Web/API/Stylesheet
+  - CSSStyleSheet, https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet
+  - Using dynamic styling info, https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information
+  - CSSStyleDeclaration, https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration
+  - HTMLElement.style, https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style
+  - HTMLElement.offsetWidth, https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth
+  - HTMLElement.offsetHeight, https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight
+  - String, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+  - String.match(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
+  - String.subtr(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr
+  - String.replace(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+  - RegExp, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+
   # References for getting the user input, event listeners, select rule on arrow up and down keys when navigating through select > option.
   - child selectors, https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors
   - event target, https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
