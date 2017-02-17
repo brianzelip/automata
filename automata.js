@@ -177,26 +177,66 @@ initRuleOptions();
 
 /*
   REFERENCES:
+  - funfunfunction #49, https://www.youtube.com/watch?v=bc-fVdbjAwk
+  - Wolfram's rules of one-dimensional, elementary, cellular automata, http://atlas.wolfram.com/01/01/
+  - Nature of Code Chapter 7. Cellular Automata, http://natureofcode.com/book/chapter-7-cellular-automata/
   - Child selectors, https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors
   - Node.cloneNode(), https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
   - Array.from(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
   - Math.random(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
-  ParentNode.children(), https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
+  ParentNode.children, https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
   - getElementById(), https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
   - Node.insertBefore(), https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
   - Node.firstChild, https://developer.mozilla.org/en-US/docs/Web/API/Node/firstChild
+  - NodeList, https://developer.mozilla.org/en-US/docs/Web/API/NodeList
   - NodeList.forEach(), https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
-  - #Objects and properties, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Objects_and_properties
+  - using data attributes, https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
+  - element.attributes, https://developer.mozilla.org/en-US/docs/Web/API/Element/attributes
+  - Working with objects#Objects and properties, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Objects_and_properties
+  - bind and this funfunfunction, https://www.youtube.com/watch?v=GhbhD1HR5vk
+  - function.bind(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+  - working with functions, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+  - bind function to another func, http://stackoverflow.com/q/17137329/2145103
+  - Element.id, https://developer.mozilla.org/en-US/docs/Web/API/Element/id
   - Element.classList, https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+  - Combinators and multiple selectors, https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors
   - Viewport width and height in js, http://stackoverflow.com/a/8876069/2145103
-  -
-  -
-  -
+  - COPY() FROM THE CONSOLE -- used this for a data scraping tool, https://css-tricks.com/can-copy-console/
+  - how to get a browser to nav to a URL -- ended up not using it during the data scraping process, but fun to learn about, http://stackoverflow.com/a/1226718/2145103
+  - Window.location, https://developer.mozilla.org/en-US/docs/Web/API/Window/location
+  - css-propers scraping repo, https://github.com/johnotander/css-properties/blob/master/build.js
   - create global variable from external js file, http://stackoverflow.com/a/3244411/2145103
   - XHR boilerplate code, http://stackoverflow.com/a/14388512/2145103
   - XHR.open, https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
   - JSON.parse(), https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-  -
+  - String.slice(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
+  - String.split(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+  - each-async, https://github.com/sindresorhus/each-async
+  - fs.writeFile, https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback
+  - how do i write files in node, https://docs.nodejitsu.com/articles/file-system/how-to-write-files-in-nodejs/
+  - json lint, http://jsonlint.com/
+  - JSON.stringify(), https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+  - using .offsetWidth & .offsetHeight to get element size, http://stackoverflow.com/a/294273/2145103
+
+  # References for getting the user input, event listeners, select rule on arrow up and down keys when navigating through select > option.
+  - child selectors, https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors
+  - event target, https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+  - event reference, https://developer.mozilla.org/en-US/docs/Web/Events
+  - select, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+  - select event reference, https://developer.mozilla.org/en-US/docs/Web/Events/select
+  - HTMLSelectElement.selectedIndex, https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedIndex
+  - SelectElement.add(), https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/add
+  - option, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
+  - Element.setAttribute(), https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+  - Node.appendChild(), https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
+  - my solution for clearing the world for a new rule rendering upon user input, using when(){}, http://javascript.info/task/removechildren
+  - addEventListener(), https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+  - click event, https://developer.mozilla.org/en-US/docs/Web/Events/click
+  - change event, https://developer.mozilla.org/en-US/docs/Web/Events/change
+  - this.value for selected option, http://stackoverflow.com/a/38087038/2145103
+  - add eventlistener on nodelist, http://stackoverflow.com/questions/12362256/addeventlistener-on-nodelist#12362466
+  - disable arrow keys for dropdown/selector element, http://stackoverflow.com/a/13992776/2145103
+  - input type="color", https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/color
 */
 
 
