@@ -1,6 +1,6 @@
 # Automata
 
-A web app that grows elementary, one-dimensional cellular automata, according to [Wolfram's rules](http://atlas.wolfram.com/01/01/).
+A web app that renders one-dimensional cellular automata, according to [Wolfram's rules](http://atlas.wolfram.com/01/01/).
 
 https://brianzelip.github.io/automata
 
