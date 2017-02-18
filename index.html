@@ -35,9 +35,15 @@
         border: 1px solid var(--color);
       }
 
+      .bg-color-var { background-color: var(--color); }
+
       .justify-content-center { justify-content: center; }
       .justify-content-between { justify-content: space-between; }
       .justify-content-around { justify-content: space-around; }
+
+      .mono { font-family: "PT Mono", "Source Code Pro", "Consolas", "Monaco", monospace; }
+
+      .btn-primary { background-color: #000; }
 
       :root {
         --color: #FF0000;
@@ -49,16 +55,22 @@
   <body>
 
     <header class="container flex flex-center justify-content-between py2">
-      <h1 class="m0">Cellular Automata</h1>
+      <div class="clearfix flex flex-center">
+        <h1 class="m0">Cellular Automata</h1>
+        <a href="https://github.com/brianzelip/automata" class="white text-decoration-none">
+          <p class="m0 ml1 mono circle bg-color-var center h6" style="width:1.25rem; height:1.25rem; margin-top: .25rem;">i</p>
+        </a>
+      </div>
       <form class="clearfix flex flex-center justify-content-around">
-        <a href="#" class="m0 h4">About</a>
-        <div class="ml2">
-          <label class="">Showing rule: </label>
+        <div>
+          <label>Showing rule: </label>
           <select type="select" class="field"></select>
         </div>
-        <label class="hide">Color Picker</label>
-        <input type="color" class="field ml2 colorpicker" value="#FF0000" >
-        <a id="clear" class="btn btn-primary ml2">Clear</a>
+        <div class="flex flex-center justify-content-around ml3">
+          <label>Pick a color: </label>
+          <input type="color" class="field ml1 colorpicker" value="#FF0000" >
+        </div>
+        <a id="clear" class="btn btn-primary ml3">Clear</a>
         </div>
       </form>
     </header>
