@@ -45,6 +45,58 @@
 
       .btn-primary { background-color: #000; }
 
+      /* colorpicker drop down
+          - adapted from http://codepen.io/philhoyt/pen/ujHzd/
+          - color values from http://codepen.io/roblafeve/pen/bNEGyv/
+
+      */
+      .pointer { cursor: pointer; }
+
+      .red { color: #ff3e05; }
+      .bg-red { background-color: #ff3e05; }
+      .orange { color: #ff8d05; }
+      .bg-orange { background-color: #ff8d05; }
+      .yellow { color: #ecca05; }
+      .bg-yellow { background-color: #ecca05; }
+      .green { color: #40af04; }
+      .bg-green { background-color: #40af04; }
+      .blue { color: #057fff; }
+      .bg-blue { background-color: #057fff; }
+      .indigo { color: #7500ca; }
+      .bg-indigo { background-color: #7500ca; }
+      .violet { color: #cc6fcc; }
+      .bg-violet { background-color: #cc6fcc; }
+
+      ul.colorpicker {
+        width: 50px;
+        position: relative;
+      }
+
+      ul.colorpicker li {
+        padding: .5rem 1rem;
+      }
+
+      ul.colorpicker li.current {
+        border-radius: 3px;
+      }
+
+      ul.colorpicker li.current:hover {
+        border-radius: 
+      }
+
+      ul.colorpicker ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 50px;
+        padding: 0;
+      }
+
+      ul.colorpicker li:hover > ul {
+      	display: block;
+      }
+
       :root {
         --color: #FF0000;
       }
@@ -68,7 +120,20 @@
         </div>
         <div class="flex flex-center justify-content-around ml3">
           <label>Pick a color: </label>
-          <input type="color" class="field ml1 colorpicker" value="#FF0000" >
+          <!-- <input type="color" class="field ml1 colorpicker" value="#FF0000" > -->
+          <ul class="colorpicker list-reset ml1 mb0 border rounded">
+            <li class="pointer bg-red red center block current">r
+              <ul class="list-reset mb0">
+                <li class="pointer bg-orange orange center block">o</li>
+                <li class="pointer bg-yellow yellow center block">y</li>
+                <li class="pointer bg-green green center block">g</li>
+                <li class="pointer bg-blue blue center block">b</li>
+                <li class="pointer bg-indigo indigo center block">i</li>
+                <li class="pointer bg-violet violet center block">v</li>
+                <li class="pointer bg-black black center block">b</li>
+              </ul>
+            </li>
+          </ul>
         </div>
         <a id="clear" class="btn btn-primary ml3">Clear</a>
         </div>
