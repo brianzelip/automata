@@ -223,9 +223,13 @@ initRuleOptions();
   - CSSRuleList, https://developer.mozilla.org/en-US/docs/Web/API/CSSRuleList
   - StyleSheet, https://developer.mozilla.org/en-US/docs/Web/API/Stylesheet
   - CSSStyleSheet, https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet
+  - Document.styleSheets, https://developer.mozilla.org/en-US/docs/Web/API/Document/styleSheets
   - Using dynamic styling info, https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information
   - CSSStyleDeclaration, https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration
   - HTMLElement.style, https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style
+  - CSS rule object, http://www.javascriptkit.com/dhtmltutors/externalcss3.shtml
+  - CSS specified value, https://developer.mozilla.org/en-US/docs/Web/CSS/specified_value
+  -
   - HTMLElement.offsetWidth, https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth
   - HTMLElement.offsetHeight, https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight
   - String, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
